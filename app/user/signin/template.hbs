@@ -1,17 +1,32 @@
 {{outlet}}
 <h2>Sign In</h2>
-<form {{action }}>
+<form {{action "submit" on="submit" }}>
 	<div>
 		<label>First Name</label>
 		{{input placeholde=Firstname value=firstname}}	
+			{{#if loginAttempt}}
+	            {{#if errors.firstname}}
+	               <div class="error-credential">{{errors.firstname}} </div>
+	            {{/if}}
+	        {{/if}}
 	</div>
 	<div>
 		<label>Last Name</label>
 		{{input placeholde=Lastname value=lastname}}	
+			{{#if loginAttempt}}
+	            {{#if errors.lastname}}
+	               <div class="error-credential">{{errors.lastname}} </div>
+	            {{/if}}
+	        {{/if}}
 	</div>
 	<div>
 		<label>Age</label>
 		{{input placeholde=Age value=age}}
+			{{#if loginAttempt}}
+	            {{#if errors.age}}
+	               <div class="error-credential">{{errors.age}} </div>
+	            {{/if}}
+	        {{/if}}
 	</div>
 	<div>
 		<button>Submit</button>

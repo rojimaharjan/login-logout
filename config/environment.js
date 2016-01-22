@@ -6,7 +6,8 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
-    hostURLAPI : 'http://fuseprospector-stage.elasticbeanstalk.com',
+    hostURLAPI : 'http://localhost:3000/',
+    serverURLAPI:'http://fuseprospector-stage.elasticbeanstalk.com',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -55,20 +56,21 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: (ENV.hostURLAPI).trim() + '/oauth/token',
+    serverTokenEndpoint: (ENV.hostURLAPI).trim() + 'users',
     // serverTokenEndpoint:'/oauth/token',
     // serverTokenRevocationEndpoint: (ENV.hostURLAPI).trim() + (ENV.hostNamespace ? ('/' + (ENV.hostNamespace).trim()) : '') + '/revoke',
     //  serverTokenRevocationEndpoint: (ENV.hostURLAPI+'/fuseprospector/').trim() + 'revoke',
-    refreshAccessTokens: true,
+    refreshAccessTokens: false,
 
     authenticationInputFormat: { //data format expected by the authenticating server
       headers: [],
-      formAttributes: ['grant_type', 'username', 'password', 'client_id', 'client_secret']
+      formAttributes: [ 'username', 'password']
+      // formAttributes: ['grant_type', 'username', 'password', 'client_id', 'client_secret']
     },
     authenticationResponseFormat: { //data format returned by the server
-      expires_in: 'expires_in',
-      refresh_token: 'refresh_token',
-      access_token: 'access_token'
+      // expires_in: 'expires_in',
+      // refresh_token: 'refresh_token',
+      // access_token: 'access_token'
     }
   };
   return ENV;

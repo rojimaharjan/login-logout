@@ -23,9 +23,9 @@ export default Ember.Route.extend({
       var authData = {
         'username': credentials.get("username"),
         'password': credentials.get("password"),
-        'client_secret': 'restapp',
-        'client_id': 'restapp',
-        'grant_type': 'password'
+        // 'client_secret': 'restapp',
+        // 'client_id': 'restapp',
+        // 'grant_type': 'password'
       };
       var Session = loginRoute.get('session');
       var controller=this;
